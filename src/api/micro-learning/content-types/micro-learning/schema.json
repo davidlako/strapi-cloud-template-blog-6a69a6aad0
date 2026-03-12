@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "micro_learnings",
+  "info": {
+    "singularName": "micro-learning",
+    "pluralName": "micro-learnings",
+    "displayName": "MicroLearning"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Contents": {
+      "type": "component",
+      "component": "shared.micro-learning-card",
+      "repeatable": true
+    },
+    "Category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::knowledge-base-category.knowledge-base-category",
+      "inversedBy": "MicroLearnings"
+    }
+  }
+}

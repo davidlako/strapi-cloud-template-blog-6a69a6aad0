@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "knowledge_base_categories",
+  "info": {
+    "singularName": "knowledge-base-category",
+    "pluralName": "knowledge-base-categories",
+    "displayName": "KnowledgeBaseCategory"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Color": {
+      "type": "string"
+    },
+    "Blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog",
+      "mappedBy": "Category"
+    },
+    "Videos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::video.video",
+      "mappedBy": "Category"
+    },
+    "MicroLearnings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::micro-learning.micro-learning",
+      "mappedBy": "Category"
+    }
+  }
+}

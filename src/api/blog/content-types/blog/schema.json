@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "videos",
+  "collectionName": "blogs",
   "info": {
-    "singularName": "video",
-    "pluralName": "videos",
-    "displayName": "Video"
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog"
   },
   "options": {
     "draftAndPublish": true
@@ -17,8 +17,8 @@
     "Description": {
       "type": "text"
     },
-    "Url": {
-      "type": "text"
+    "Content": {
+      "type": "richtext"
     },
     "Thumbnail": {
       "type": "media",
@@ -37,7 +37,7 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::knowledge-base-category.knowledge-base-category",
-      "inversedBy": "Videos"
+      "inversedBy": "Blogs"
     }
   }
 }

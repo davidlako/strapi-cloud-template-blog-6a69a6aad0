@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_micro_learning_cards",
+  "info": {
+    "displayName": "MicroLearningContent"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}
