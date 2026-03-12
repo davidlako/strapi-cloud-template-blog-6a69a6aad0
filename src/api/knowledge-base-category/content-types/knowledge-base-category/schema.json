@@ -15,25 +15,9 @@
       "type": "string"
     },
     "Color": {
-      "type": "string"
-    },
-    "Blogs": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::blog.blog",
-      "mappedBy": "Category"
-    },
-    "Videos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::video.video",
-      "mappedBy": "Category"
-    },
-    "MicroLearnings": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::micro-learning.micro-learning",
-      "mappedBy": "Category"
+      "relation": "oneToOne",
+      "target": "api::color.color"
     }
   }
 }

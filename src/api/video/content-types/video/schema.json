@@ -35,9 +35,8 @@
     },
     "Category": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::knowledge-base-category.knowledge-base-category",
-      "inversedBy": "Videos"
+      "relation": "oneToOne",
+      "target": "api::knowledge-base-category.knowledge-base-category"
     }
   }
 }

@@ -41,9 +41,8 @@
     },
     "category": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "articles"
+      "relation": "oneToOne",
+      "target": "api::category.category"
     },
     "blocks": {
       "type": "dynamiczone",

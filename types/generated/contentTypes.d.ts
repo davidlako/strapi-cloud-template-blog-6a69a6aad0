@@ -475,7 +475,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     blocks: Schema.Attribute.DynamicZone<
       ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
     >;
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -543,7 +543,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Category: Schema.Attribute.Relation<
-      'manyToOne',
+      'oneToOne',
       'api::knowledge-base-category.knowledge-base-category'
     >;
     Content: Schema.Attribute.RichText;
@@ -576,7 +576,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -593,6 +592,32 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiColorColor extends Struct.CollectionTypeSchema {
+  collectionName: 'colors';
+  info: {
+    displayName: 'Color';
+    pluralName: 'colors';
+    singularName: 'color';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::color.color'> &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Value: Schema.Attribute.String;
   };
 }
 
@@ -640,8 +665,7 @@ export interface ApiKnowledgeBaseCategoryKnowledgeBaseCategory
     draftAndPublish: true;
   };
   attributes: {
-    Blogs: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'>;
-    Color: Schema.Attribute.String;
+    Color: Schema.Attribute.Relation<'oneToOne', 'api::color.color'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -651,16 +675,11 @@ export interface ApiKnowledgeBaseCategoryKnowledgeBaseCategory
       'api::knowledge-base-category.knowledge-base-category'
     > &
       Schema.Attribute.Private;
-    MicroLearnings: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::micro-learning.micro-learning'
-    >;
     publishedAt: Schema.Attribute.DateTime;
     Text: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Videos: Schema.Attribute.Relation<'oneToMany', 'api::video.video'>;
   };
 }
 
@@ -677,7 +696,7 @@ export interface ApiMicroLearningMicroLearning
   };
   attributes: {
     Category: Schema.Attribute.Relation<
-      'manyToOne',
+      'oneToOne',
       'api::knowledge-base-category.knowledge-base-category'
     >;
     Contents: Schema.Attribute.Component<'shared.micro-learning-card', true>;
@@ -711,7 +730,7 @@ export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Category: Schema.Attribute.Relation<
-      'manyToOne',
+      'oneToOne',
       'api::knowledge-base-category.knowledge-base-category'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1247,6 +1266,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
+      'api::color.color': ApiColorColor;
       'api::global.global': ApiGlobalGlobal;
       'api::knowledge-base-category.knowledge-base-category': ApiKnowledgeBaseCategoryKnowledgeBaseCategory;
       'api::micro-learning.micro-learning': ApiMicroLearningMicroLearning;
