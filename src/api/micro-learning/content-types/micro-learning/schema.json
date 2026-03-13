@@ -26,6 +26,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::knowledge-base-category.knowledge-base-category"
+    },
+    "IsHighlighted": {
+      "type": "boolean"
     }
   }
 }
