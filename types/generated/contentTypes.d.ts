@@ -542,6 +542,7 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    AppointmentCTA: Schema.Attribute.Component<'shared.appointment-cta', false>;
     Category: Schema.Attribute.Relation<
       'oneToOne',
       'api::knowledge-base-category.knowledge-base-category'
@@ -562,6 +563,8 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    WarningInformation: Schema.Attribute.Text;
+    WebshopCTA: Schema.Attribute.Component<'shared.webshop-cta', false>;
   };
 }
 

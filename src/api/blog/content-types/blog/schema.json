@@ -40,6 +40,19 @@
     },
     "IsHighlighted": {
       "type": "boolean"
+    },
+    "WarningInformation": {
+      "type": "text"
+    },
+    "WebshopCTA": {
+      "type": "component",
+      "component": "shared.webshop-cta",
+      "repeatable": false
+    },
+    "AppointmentCTA": {
+      "type": "component",
+      "component": "shared.appointment-cta",
+      "repeatable": false
     }
   }
 }

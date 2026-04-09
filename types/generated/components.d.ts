@@ -1,5 +1,18 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedAppointmentCta extends Struct.ComponentSchema {
+  collectionName: 'components_shared_appointment_ctas';
+  info: {
+    displayName: 'AppointmentCTA';
+    icon: 'doctor';
+  };
+  attributes: {
+    ButtonText: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedColor extends Struct.ComponentSchema {
   collectionName: 'components_shared_colors';
   info: {
@@ -85,9 +98,24 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedWebshopCta extends Struct.ComponentSchema {
+  collectionName: 'components_shared_webshop_ctas';
+  info: {
+    displayName: 'WebshopCTA';
+    icon: 'shoppingCart';
+  };
+  attributes: {
+    ButtonText: Schema.Attribute.String;
+    Description: Schema.Attribute.Text;
+    Filter: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.appointment-cta': SharedAppointmentCta;
       'shared.color': SharedColor;
       'shared.media': SharedMedia;
       'shared.micro-learning-card': SharedMicroLearningCard;
@@ -95,6 +123,7 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.webshop-cta': SharedWebshopCta;
     }
   }
 }

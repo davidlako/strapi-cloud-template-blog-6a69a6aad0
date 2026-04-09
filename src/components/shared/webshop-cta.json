@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_webshop_ctas",
+  "info": {
+    "displayName": "WebshopCTA",
+    "icon": "shoppingCart"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "ButtonText": {
+      "type": "string"
+    },
+    "Filter": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
