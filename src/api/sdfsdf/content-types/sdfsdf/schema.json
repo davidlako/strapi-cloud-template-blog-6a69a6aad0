@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sdfsdfs",
+  "info": {
+    "singularName": "sdfsdf",
+    "pluralName": "sdfsdfs",
+    "displayName": "sdfsdf"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sdf": {
+      "type": "component",
+      "component": "shared.appointment-cta",
+      "repeatable": true
+    }
+  }
+}
